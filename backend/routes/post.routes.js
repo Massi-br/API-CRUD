@@ -1,14 +1,12 @@
 const express = require("express");
+const { setPosts } = require("../controllers/post.controllers");
 const router = express.Router();
 
 router.get("/", (req, res) => {
   res.json({ message: "voici les données" });
 });
 
-router.post("/", (req, res) => {
-  console.log(req.body);
-  res.json({ message: req.body.message });
-});
+router.post("/", setPosts);
 
 router.put("/:id", (req, res) => {
   res.json({ messageId: req.params.id });
