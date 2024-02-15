@@ -2,21 +2,13 @@ const mongoose = require("mongoose");
 
 const postSchema = mongoose.Schema(
   {
-    message: {
-      type: String,
-      required: true,
-    },
-    author: {
-      String,
-      required: true,
-    },
-    likers: {
-      type: [String],
-    },
+    message: String,
+    author: String,
+    likers: [String],
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = postSchema;
+module.exports = mongoose.model("post", postSchema);
